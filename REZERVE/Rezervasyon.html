@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervasyon Takvimi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .calendar-day {
+            border: 1px solid #ddd;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .reserved {
+            background-color: #f8d7da; /* Doluluk için kırmızı ton */
+            color: #721c24;
+            cursor: not-allowed;
+        }
+        .available {
+            background-color: #d4edda; /* Uygunluk için yeşil ton */
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Rezervasyon Takvimi</h1>
+        <div id="calendar" class="row row-cols-7 g-1 mt-4">
+            <!-- Takvim günleri JavaScript ile doldurulacak -->
+        </div>
+    </div>
+
+    <!-- Rezervasyon Modal -->
+    <div class="modal" id="reservationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Rezervasyon</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalDate">Seçilen tarih: </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="reserveButton" class="btn btn-success">Rezerve Et</button>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Doluluk durumunu göstermek için örnek tarihler
+        const reservedDates = ["2024-12-25", "2024-12-31", "2025-01-01"];
+
+        // Bugünün tarihini al
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth(); // Aylar 0'dan başlar (0 = Ocak)
+
+        // Ayın toplam gün sayısını hesapla
+        function getDaysInMonth(year, month) {
+            return new Date(year, month + 1, 0).getDate();
+        }
+
+        // Takvimi oluştur
+        function generateCalendar(year, month) {
+            const calendar = document.getElementById("calendar");
+            calendar.innerHTML = ""; // Önce takvimi temizle
+
+            const daysInMonth = getDaysInMonth(year, month);
+            for (let day = 1; day <= daysInMonth; day++) {
+                const date = new Date(year, month, day);
+                const dateString = date.toISOString().split("T")[0];
+
+                const dayDiv = document.createElement("div");
+                dayDiv.classList.add("col", "calendar-day");
+
+                if (reservedDates.includes(dateString)) {
+                    dayDiv.classList.add("reserved");
+                    dayDiv.innerHTML = `<strong>${day}</strong><br>Dolu`;
+                } else {
+                    dayDiv.classList.add("available");
+                    dayDiv.innerHTML = `<strong>${day}</strong><br>Uygun`;
+                    dayDiv.onclick = () => openReservationModal(dateString);
+                }
+
+                calendar.appendChild(dayDiv);
+            }
+        }
+
+        // Modal açma fonksiyonu
+        function openReservationModal(dateString) {
+            const modal = new bootstrap.Modal(document.getElementById("reservationModal"));
+            document.getElementById("modalDate").textContent = `Seçilen tarih: ${dateString}`;
+
+            const reserveButton = document.getElementById("reserveButton");
+            reserveButton.onclick = () => {
+                alert(`${dateString} için rezervasyon işlemi tamamlandı!`);
+                reservedDates.push(dateString); // Tarihi dolu günlere ekle
+                generateCalendar(year, month); // Takvimi güncelle
+                modal.hide();
+            };
+
+            modal.show();
+        }
+
+        // Takvimi başlat
+        generateCalendar(year, month);
+    </script>
+</body>
+</html>

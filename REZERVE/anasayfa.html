@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezerve</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+  <!-- header kısmı -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img src="img/logo3.png" alt="" class="navbar-brand">
+          
+         <div class="bglinkler">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+              <li class="nav-item">
+                <a class="nav-link active activ" aria-current="page" href="anasayfa.html">Ana sayfa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="otel.html">Otel</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="berber.html">Berber</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="kuaför.html">Kuaför</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="restorant.html">Restorant</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="kullanıcıkayıt.html">Giriş Yap</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+
+            <form class="d-flex" role="search"  onsubmit="handleSearch(event)">
+              <input class="form-control me-2 mr-2" type="search" id="searchInput" placeholder="Metin Gir" aria-label="Search">
+              <button class="btn logobuton" type="submit">Ara</button>
+            </form>
+            <div id="searchResult" style="margin-top: 10px;"></div>
+          </div>
+      </nav>
+
+      <div class="div-img">
+        <img src="img/banner.jpg" alt="">
+      </div>
+      
+      
+<div class="showcase">
+  <div class="games">
+    <div class="game">
+      <h3>OTELLER</h3>
+    </div>
+    <div class="game">
+      <h3>RESTORANLAR</h3>
+    </div>
+    <div class="game">
+      <h3>BERBERLER</h3>
+    </div>
+    <div class="game">
+      <h3>KUAFÖRLER</h3>
+    </div>
+  </div>
+</div>
+
+
+<section class="sec-about">
+  <div class="about">
+    <i class="fa-solid fa-address-book icons"></i>
+    <article><h3>7/24 Canlı Destek</h3></article>
+    <p>
+      "Sitemiz, 7/24 canlı destek hizmetiyle her an yanınızda!"
+    </p>
+  </div>
+  <div class="about">
+    <i class="fa-solid fa-utensils icons"></i>
+    <article><h3>Restaurant</h3></article>
+    <p>
+      Restoranlar için rezervasyon yapabileceğiniz bir platform sunuyoruz
+      </p>
+  </div>
+  <div class="about">
+    <i class="fa-brands fa-servicestack icons"></i>
+    <article><h3>Servis</h3></article>
+    <p>
+      Otel ve Restoran rezervasyonlarınızda servis hizmeti sunuyoruz
+    </p>
+  </div>
+  <div class="about">
+    <i class="fa-solid fa-spa icons"></i>
+    <article> <h3>Dinlenme</h3></article>
+    <p>Otellerimizin yenilenme ve rahatlama için kaçış ve dinlenme imkanı sunmaktadır.
+    </p>
+  </div>
+  </section>
+
+<section class="sayac">
+  <div class="counter-item">
+    <div class="count-wrapper">
+        <h4><span class="counterup">1000</span>+</h4>
+        <p>Rezervasyon İşlemi</p>
+    </div>
+</div>
+<div class="counter-item">
+  <div class="count-wrapper">
+      <h4><span class="counterup">750</span>+</h4>
+      <p>Mutlu Müşteri</p>
+  </div>
+</div>
+</section>
+
+
+<div><h1 style="text-align: center;color: white;margin-top: 4%;margin-bottom: 3%;">PORTFOLYOMUZ</h1></div>
+<section class="fifty-sec">
+  <div class="sec-div img-secdiv">
+  <img src="img/otel2.jpg" alt="" class="bg-secdiv">
+  <img src="img/ağaçlar.jpg" alt="" class="bg-secdiv">
+  <img src="img/masalar3.jpg" alt="" class="bg-secdiv">
+  </div>
+  <div class="sec-div background">
+    <h2>Müşterilerin Favorileri</h2>
+    <p>Eşsiz bir tatili deneyimlemek ister misiniz?</p>
+    <a style="color: white;" href="" class="btn btn-warning">Rezerve Et</a>
+  </div>
+</section>
+
+
+
+<footer class="footer1">
+  <article><h2>Sosyal Medya Araçlarımız ve İletişim</h2></article>
+  <section>
+  <div class="div-footer">
+  <a href="" class="flex-a item"><i class="fa-brands fa-instagram icon4 icon5"></i></a>
+  <a href="" class="flex-a item"><i class="fa-brands fa-linkedin icon4 icon6"></i></a>
+  <a href="" class="flex-a item"><i class="fa-brands fa-youtube icon4 icon7"></i></a>
+  <a href="" class="flex-a item"><i class="fa-brands fa-x-twitter icon4 icon8"></i></a>
+</section>
+</div>
+</footer>
+
+<footer class="footer2">
+<small> <p>@ 2024 | Tüm Hakları Saklıdır</p></small> 
+
+<script src="script.js"></script>
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="7541d98c-70f5-4865-9c3b-4c628c5a8ebc";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+</body>
+</html>
